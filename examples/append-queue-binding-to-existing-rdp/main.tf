@@ -8,10 +8,20 @@ resource "solacebroker_msg_vpn_queue" "myqueue" {
   msg_vpn_name = "default"
   queue_name   = "my_queue"
   permission   = "consume"
+  ingress_enabled = true
+  egress_enabled = true
+}
+
+resource "solacebroker_msg_vpn_queue" "myqueue2" {
+  msg_vpn_name = "default"
+  queue_name   = "my_queue2"
+  permission   = "consume"
+  ingress_enabled = true
+  egress_enabled = true
 }
 
 module "testrdp" {
-  source                  = "../.."
+  source                  = "../../internal/gen-template"
   
   msg_vpn_name            = "default"
   queue_name              = solacebroker_msg_vpn_queue.myqueue.queue_name
@@ -27,24 +37,17 @@ module "testrdp" {
       header_value = "value2"
     }
   ]
-  oauth_jwt_claims = [
-    {
-      oauth_jwt_claim_name  = "scope"
-      oauth_jwt_claim_value =  "\"https://www.googleapis.com/auth/pubsub\""
-    },
-    {
-      oauth_jwt_claim_name  = "aud"
-      oauth_jwt_claim_value =  "\"https://www.googleapis.com/oauth2/v4/token\""
-    },
-    {
-      oauth_jwt_claim_name  = "iss"
-      oauth_jwt_claim_value =  "\"111400995554822290197\""
-    },
-    {
-      oauth_jwt_claim_name  = "sub"
-      oauth_jwt_claim_value =  "\"111400995554822290197\""
-    }
-  ]
+}
+
+module "testrdp2" {
+  source                  = "../../internal/gen-template"
+  
+  msg_vpn_name            = "default"
+  queue_name              = solacebroker_msg_vpn_queue.myqueue2.queue_name
+  url                     = "http://example.com/$${msgId()}2"
+  rest_delivery_point_name = module.testrdp.rest_delivery_point.rest_delivery_point_name
+  append_queue_binding_to_existing_rdp = true
+  request_headers = module.testrdp.request_headers
 }
 
 output "rdp" {
@@ -64,14 +67,18 @@ output "request_headers" {
   value = module.testrdp.request_headers
 }
 
-output "oauth_jwt_claims" {
-  value = module.testrdp.oauth_jwt_claims
-}
-
 resource "solacebroker_msg_vpn_rest_delivery_point_queue_binding_protected_request_header" "test" {
   msg_vpn_name             = module.testrdp.rest_delivery_point.msg_vpn_name
   rest_delivery_point_name = module.testrdp.rest_delivery_point.rest_delivery_point_name
   queue_binding_name       = module.testrdp.queue_binding.queue_binding_name
+  header_name              = "protected_header1"
+  header_value             = "protected_value1"
+}
+
+resource "solacebroker_msg_vpn_rest_delivery_point_queue_binding_protected_request_header" "test2" {
+  msg_vpn_name             = module.testrdp.rest_delivery_point.msg_vpn_name
+  rest_delivery_point_name = module.testrdp.rest_delivery_point.rest_delivery_point_name
+  queue_binding_name       = module.testrdp2.queue_binding.queue_binding_name
   header_name              = "protected_header1"
   header_value             = "protected_value1"
 }

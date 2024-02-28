@@ -8,6 +8,8 @@ resource "solacebroker_msg_vpn_queue" "myqueue" {
   msg_vpn_name = "default"
   queue_name   = "my_queue"
   permission   = "consume"
+  ingress_enabled = true
+  egress_enabled  = true
 }
 
 module "testrdp" {
@@ -17,6 +19,7 @@ module "testrdp" {
   queue_name              = solacebroker_msg_vpn_queue.myqueue.queue_name
   url                     = "http://example.com/$${msgId()}"
   rest_delivery_point_name = "my_rdp"
+  enabled = var.enabled
   request_headers = [
     {
       header_name  = "header1"

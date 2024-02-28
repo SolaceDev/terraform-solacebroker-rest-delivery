@@ -1,12 +1,12 @@
 # Output variable definitions
 
 output "rest_delivery_point" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point.main, null)
+  value       = try(solacebroker_msg_vpn_rest_delivery_point.main[0], null)
   description = "A REST Delivery Point manages delivery of messages from queues to a named list of REST Consumers."
 }
 
 output "rest_consumer" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main, null)
+  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main[0], null)
   description = "REST Consumer objects establish HTTP connectivity to REST consumer applications who wish to receive messages from a broker."
 }
 
@@ -16,12 +16,7 @@ output "queue_binding" {
 }
 
 output "request_headers" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_queue_binding_request_header.main, null)
-  description = "A request header to be added to the HTTP request."
-}
-
-output "oauth_jwt_claims" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer_oauth_jwt_claim.main, null)
-  description = "A Claim is added to the JWT sent to the OAuth token request endpoint."
+  value       = var.request_headers
+  description = "Reflects the list of request headers passed to the REST Delivery Point"
 }
 

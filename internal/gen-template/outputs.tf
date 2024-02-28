@@ -1,11 +1,11 @@
 # Output variable definitions
 
 output "rest_delivery_point" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point.main, null)
+  value       = try(solacebroker_msg_vpn_rest_delivery_point.main[0], null)
 }
 
 output "rest_consumer" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main, null)
+  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main[0], null)
 }
 
 output "queue_binding" {
@@ -13,9 +13,6 @@ output "queue_binding" {
 }
 
 output "request_headers" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_queue_binding_request_header.main, null)
-}
-
-output "oauth_jwt_claims" {
-  value       = try(solacebroker_msg_vpn_rest_delivery_point_rest_consumer_oauth_jwt_claim.main, null)
+  value       = var.request_headers
+  description = "Reflects the list of request headers passed to the REST Delivery Point"
 }

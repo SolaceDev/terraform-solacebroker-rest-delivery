@@ -27,7 +27,13 @@ variable "queue_name" {
 variable "enabled" {
   description = "Enable or disable the REST Delivery Point."
   type        = bool
-  default     = null
+  default     = true
+}
+
+variable "append_queue_binding_to_existing_rdp" {
+  description = "Add a new queue binding to an existing REST Delivery Point. The RDP with `rest_delivery_point_name` must exist. Default is false"
+  type        = bool
+  default     = false
 }
 
 variable "rest_consumer_name" {

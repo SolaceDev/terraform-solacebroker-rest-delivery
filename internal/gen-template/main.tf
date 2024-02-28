@@ -8,6 +8,8 @@ locals {
 }
 
 resource "solacebroker_msg_vpn_rest_delivery_point" "main" {
+  count = var.append_queue_binding_to_existing_rdp ? 0 : 1
+
   msg_vpn_name             = var.msg_vpn_name
   rest_delivery_point_name = var.rest_delivery_point_name
   enabled                  = var.enabled
@@ -16,9 +18,11 @@ resource "solacebroker_msg_vpn_rest_delivery_point" "main" {
 }
 
 resource "solacebroker_msg_vpn_rest_delivery_point_rest_consumer" "main" {
-  msg_vpn_name                                     = solacebroker_msg_vpn_rest_delivery_point.main.msg_vpn_name
-  rest_delivery_point_name                         = solacebroker_msg_vpn_rest_delivery_point.main.rest_delivery_point_name
-  enabled                                          = solacebroker_msg_vpn_rest_delivery_point.main.enabled
+  count = var.append_queue_binding_to_existing_rdp ? 0 : 1
+
+  msg_vpn_name                                     = solacebroker_msg_vpn_rest_delivery_point.main[0].msg_vpn_name
+  rest_delivery_point_name                         = solacebroker_msg_vpn_rest_delivery_point.main[0].rest_delivery_point_name
+  enabled                                          = solacebroker_msg_vpn_rest_delivery_point.main[0].enabled
   rest_consumer_name                               = var.rest_consumer_name != null ? var.rest_consumer_name : "consumer"
   remote_host                                      = local.host
   remote_port                                      = local.port
@@ -28,8 +32,8 @@ resource "solacebroker_msg_vpn_rest_delivery_point_rest_consumer" "main" {
 }
 
 resource "solacebroker_msg_vpn_rest_delivery_point_queue_binding" "main" {
-  msg_vpn_name                             = solacebroker_msg_vpn_rest_delivery_point.main.msg_vpn_name
-  rest_delivery_point_name                 = solacebroker_msg_vpn_rest_delivery_point.main.rest_delivery_point_name
+  msg_vpn_name                             = var.append_queue_binding_to_existing_rdp ? var.msg_vpn_name : solacebroker_msg_vpn_rest_delivery_point.main[0].msg_vpn_name
+  rest_delivery_point_name                 = var.append_queue_binding_to_existing_rdp ? var.rest_delivery_point_name : solacebroker_msg_vpn_rest_delivery_point.main[0].rest_delivery_point_name
   queue_binding_name                       = var.queue_name
   post_request_target                      = local.path
 
@@ -40,8 +44,8 @@ resource "solacebroker_msg_vpn_rest_delivery_point_queue_binding_request_header"
 
   for_each = {for v in var.request_headers : v.header_name => v}
 
-  msg_vpn_name             = solacebroker_msg_vpn_rest_delivery_point.main.msg_vpn_name
-  rest_delivery_point_name = solacebroker_msg_vpn_rest_delivery_point.main.rest_delivery_point_name
+  msg_vpn_name             = var.append_queue_binding_to_existing_rdp ? var.msg_vpn_name : solacebroker_msg_vpn_rest_delivery_point.main[0].msg_vpn_name
+  rest_delivery_point_name = var.append_queue_binding_to_existing_rdp ? var.rest_delivery_point_name : solacebroker_msg_vpn_rest_delivery_point.main[0].rest_delivery_point_name
   queue_binding_name       = solacebroker_msg_vpn_rest_delivery_point_queue_binding.main.queue_binding_name
 
   header_name              = each.value.header_name
@@ -51,9 +55,9 @@ resource "solacebroker_msg_vpn_rest_delivery_point_queue_binding_request_header"
 resource "solacebroker_msg_vpn_rest_delivery_point_rest_consumer_oauth_jwt_claim" "main" {
   for_each = {for v in var.oauth_jwt_claims : v.oauth_jwt_claim_name => v}
 
-  msg_vpn_name             = solacebroker_msg_vpn_rest_delivery_point.main.msg_vpn_name
-  rest_delivery_point_name = solacebroker_msg_vpn_rest_delivery_point.main.rest_delivery_point_name
-  rest_consumer_name       = solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main.rest_consumer_name
+  msg_vpn_name             = solacebroker_msg_vpn_rest_delivery_point.main[0].msg_vpn_name
+  rest_delivery_point_name = solacebroker_msg_vpn_rest_delivery_point.main[0].rest_delivery_point_name
+  rest_consumer_name       = solacebroker_msg_vpn_rest_delivery_point_rest_consumer.main[0].rest_consumer_name
 
   oauth_jwt_claim_name     = each.value.oauth_jwt_claim_name
   oauth_jwt_claim_value    = each.value.oauth_jwt_claim_value
