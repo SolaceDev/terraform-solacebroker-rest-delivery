@@ -24164,6 +24164,176 @@
     },
     "MsgVpnKafkaReceiver": {
       "properties": {
+        "authenticationAwsMskIamAccessKeyId": {
+          "description": "The AWS Access Key identifier, typically beginning \"AKIA...\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 128,
+          "minLength": 0,
+          "pattern": "^[\\w]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamAccessKeyId_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamRegion": {
+          "description": "The AWS Region code, such as \"us-east-1\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamRegion_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamSecretAccessKey": {
+          "description": "The AWS Access Key secret.\n\nThe minimum access scope/level required to change this attribute is \"vpn/read-write\". This attribute is absent from a GET and not updated when absent in a PUT, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods). Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": true,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": true,
+          "x-type": "kafka_AuthAwsMskIamSecretAccessKey_param",
+          "x-writeOnly": true
+        },
+        "authenticationAwsMskIamStsExternalId": {
+          "description": "The External ID is a unique identifier that might be required when assuming a role. Used with STS only; optional.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 1224,
+          "minLength": 0,
+          "pattern": "^[\\w=,.@:/-]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsExternalId_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamStsRoleArn": {
+          "description": "The Amazon Resource Name (ARN) of the role to assume, typically beginning \"arn:aws:iam::...\". Used with STS only.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 2048,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsRoleArn_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamStsRoleSessionName": {
+          "description": "An identifier for the assumed role's session. Used with STS only.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 64,
+          "minLength": 0,
+          "pattern": "^[\\w=,.@-]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsRoleSessionName_param",
+          "x-writeOnly": false
+        },
         "authenticationBasicPassword": {
           "description": "The password for the Username. To be used when authenticationScheme is \"basic\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". This attribute is absent from a GET and not updated when absent in a PUT, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods). Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`.",
           "maxLength": 255,
@@ -24511,9 +24681,11 @@
           "x-writeOnly": false
         },
         "authenticationScheme": {
-          "description": "The authentication scheme for the Kafka Receiver. The bootstrap addresses must resolve to an appropriately configured and compatible listener port on the Kafka Broker for the given scheme.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"none\"`. The allowed values and their meaning are:\n\n<pre>\n\"none\" - Anonymous Authentication. Used with Kafka Broker PLAINTEXT listener ports.\n\"basic\" - Basic Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"scram\" - Salted Challenge Response Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"client-certificate\" - Client Certificate Authentication. Used with Kafka Broker SSL listener ports.\n\"kerberos\" - Kerberos Authentication.\n\"oauth-client\" - Oauth Authentication. Used with Kafka Broker SASL_SSL listener ports.\n</pre>\n",
+          "description": "The authentication scheme for the Kafka Receiver. The bootstrap addresses must resolve to an appropriately configured and compatible listener port on the Kafka Broker for the given scheme.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"none\"`. The allowed values and their meaning are:\n\n<pre>\n\"none\" - Anonymous Authentication. Used with Kafka Broker PLAINTEXT listener ports.\n\"aws-msk-iam\" - Amazon Web Services (AWS) Managed Streaming for Kafka (MSK) Identity and Access Management (IAM) Authentication. Requires encryption.\n\"aws-msk-iam-sts\" - AWS MSK IAM with Security Token Service (STS) Authentication. Requires encryption.\n\"basic\" - Basic Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"scram\" - Salted Challenge Response Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"client-certificate\" - Client Certificate Authentication. Used with Kafka Broker SSL listener ports.\n\"kerberos\" - Kerberos Authentication.\n\"oauth-client\" - Oauth Authentication. Used with Kafka Broker SASL_SSL listener ports.\n</pre>\n",
           "enum": [
             "none",
+            "aws-msk-iam",
+            "aws-msk-iam-sts",
             "basic",
             "scram",
             "client-certificate",
@@ -25317,6 +25489,176 @@
     },
     "MsgVpnKafkaSender": {
       "properties": {
+        "authenticationAwsMskIamAccessKeyId": {
+          "description": "The AWS Access Key identifier, typically beginning \"AKIA...\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 128,
+          "minLength": 0,
+          "pattern": "^[\\w]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamAccessKeyId_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamRegion": {
+          "description": "The AWS Region code, such as \"us-east-1\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 50,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamRegion_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamSecretAccessKey": {
+          "description": "The AWS Access Key secret.\n\nThe minimum access scope/level required to change this attribute is \"vpn/read-write\". This attribute is absent from a GET and not updated when absent in a PUT, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods). Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": true,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": true,
+          "x-type": "kafka_AuthAwsMskIamSecretAccessKey_param",
+          "x-writeOnly": true
+        },
+        "authenticationAwsMskIamStsExternalId": {
+          "description": "The External ID is a unique identifier that might be required when assuming a role. Used with STS only; optional.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 1224,
+          "minLength": 0,
+          "pattern": "^[\\w=,.@:/-]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsExternalId_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamStsRoleArn": {
+          "description": "The Amazon Resource Name (ARN) of the role to assume, typically beginning \"arn:aws:iam::...\". Used with STS only.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 2048,
+          "minLength": 0,
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsRoleArn_param",
+          "x-writeOnly": false
+        },
+        "authenticationAwsMskIamStsRoleSessionName": {
+          "description": "An identifier for the assumed role's session. Used with STS only.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`. Available since 2.46.",
+          "maxLength": 64,
+          "minLength": 0,
+          "pattern": "^[\\w=,.@-]*$",
+          "type": "string",
+          "x-accessLevels": {
+            "get": "vpn/read-only",
+            "patch": "vpn/read-write"
+          },
+          "x-autoDisable": [
+            "enabled"
+          ],
+          "x-configSyncDefault": "",
+          "x-configSyncTableType": "vpn",
+          "x-default": "",
+          "x-deprecated": false,
+          "x-identifying": false,
+          "x-identifyingDirect": false,
+          "x-opaque": false,
+          "x-readOnlyOther": false,
+          "x-readOnlyPost": false,
+          "x-readOptional": false,
+          "x-requiredPost": false,
+          "x-requiresDisable": [],
+          "x-sensitive": false,
+          "x-type": "kafka_AuthAwsMskIamStsRoleSessionName_param",
+          "x-writeOnly": false
+        },
         "authenticationBasicPassword": {
           "description": "The password for the Username. To be used when authenticationScheme is \"basic\".\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". This attribute is absent from a GET and not updated when absent in a PUT, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods). Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"\"`.",
           "maxLength": 255,
@@ -25664,9 +26006,11 @@
           "x-writeOnly": false
         },
         "authenticationScheme": {
-          "description": "The authentication scheme for the Kafka Sender. The bootstrap addresses must resolve to an appropriately configured and compatible listener port on the Kafka Broker for the given scheme.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"none\"`. The allowed values and their meaning are:\n\n<pre>\n\"none\" - Anonymous Authentication. Used with Kafka Broker PLAINTEXT listener ports.\n\"basic\" - Basic Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"scram\" - Salted Challenge Response Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"client-certificate\" - Client Certificate Authentication. Used with Kafka Broker SSL listener ports.\n\"kerberos\" - Kerberos Authentication.\n\"oauth-client\" - Oauth Authentication. Used with Kafka Broker SASL_SSL listener ports.\n</pre>\n",
+          "description": "The authentication scheme for the Kafka Sender. The bootstrap addresses must resolve to an appropriately configured and compatible listener port on the Kafka Broker for the given scheme.\n\nThe minimum access scope/level required to retrieve this attribute is \"vpn/read-only\". The minimum access scope/level required to change this attribute is \"vpn/read-write\". Modifying this attribute while the object (or the relevant part of the object) is administratively enabled may be service impacting as enabled will be temporarily set to false to apply the change. Changes to this attribute are synchronized to HA mates and replication sites via config-sync. The default value is `\"none\"`. The allowed values and their meaning are:\n\n<pre>\n\"none\" - Anonymous Authentication. Used with Kafka Broker PLAINTEXT listener ports.\n\"aws-msk-iam\" - Amazon Web Services (AWS) Managed Streaming for Kafka (MSK) Identity and Access Management (IAM) Authentication. Requires encryption.\n\"aws-msk-iam-sts\" - AWS MSK IAM with Security Token Service (STS) Authentication. Requires encryption.\n\"basic\" - Basic Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"scram\" - Salted Challenge Response Authentication. Used with Kafka Broker SASL_PLAINTEXT and SASL_SSL listener ports.\n\"client-certificate\" - Client Certificate Authentication. Used with Kafka Broker SSL listener ports.\n\"kerberos\" - Kerberos Authentication.\n\"oauth-client\" - Oauth Authentication. Used with Kafka Broker SASL_SSL listener ports.\n</pre>\n",
           "enum": [
             "none",
+            "aws-msk-iam",
+            "aws-msk-iam-sts",
             "basic",
             "scram",
             "client-certificate",
@@ -55816,7 +56160,7 @@
     },
     "/msgVpns/{msgVpnName}/kafkaReceivers": {
       "get": {
-        "description": "Get a list of Kafka Receiver objects.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaReceiverName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThe maximum number of objects that can be returned in a single page is 100.\n\nThis has been available since 2.36.",
+        "description": "Get a list of Kafka Receiver objects.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey||x|\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaReceiverName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThe maximum number of objects that can be returned in a single page is 100.\n\nThis has been available since 2.36.",
         "operationId": "getMsgVpnKafkaReceivers",
         "parameters": [
           {
@@ -55879,7 +56223,7 @@
         "x-supportedInSempDirect": false
       },
       "post": {
-        "description": "Create a Kafka Receiver object. Any attribute missing from the request will be set to its default value. The creation of instances of this object are synchronized to HA mates and replication sites via config-sync.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Required|Read-Only|Write-Only|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword|||||x|x\nauthenticationClientCertContent|||||x|x\nauthenticationClientCertPassword|||||x|\nauthenticationKerberosKeytabContent|||||x|\nauthenticationOauthClientSecret|||||x|x\nauthenticationScramPassword|||||x|x\nkafkaReceiverName|x|x|x|||\nmsgVpnName|x|||x||\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-write\". A different access scope/level may also be required when providing values for specific attributes.\n\nThis has been available since 2.36.",
+        "description": "Create a Kafka Receiver object. Any attribute missing from the request will be set to its default value. The creation of instances of this object are synchronized to HA mates and replication sites via config-sync.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Required|Read-Only|Write-Only|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey|||||x|\nauthenticationBasicPassword|||||x|x\nauthenticationClientCertContent|||||x|x\nauthenticationClientCertPassword|||||x|\nauthenticationKerberosKeytabContent|||||x|\nauthenticationOauthClientSecret|||||x|x\nauthenticationScramPassword|||||x|x\nkafkaReceiverName|x|x|x|||\nmsgVpnName|x|||x||\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-write\". A different access scope/level may also be required when providing values for specific attributes.\n\nThis has been available since 2.36.",
         "operationId": "createMsgVpnKafkaReceiver",
         "parameters": [
           {
@@ -55993,7 +56337,7 @@
         "x-supportedInSempDirect": false
       },
       "get": {
-        "description": "Get a Kafka Receiver object.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaReceiverName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThis has been available since 2.36.",
+        "description": "Get a Kafka Receiver object.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey||x|\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaReceiverName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThis has been available since 2.36.",
         "operationId": "getMsgVpnKafkaReceiver",
         "parameters": [
           {
@@ -56051,7 +56395,7 @@
         "x-supportedInSempDirect": false
       },
       "patch": {
-        "description": "Update a Kafka Receiver object. Any attribute missing from the request will be left unchanged.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\ngroupId|||||x|\ngroupKeepaliveInterval|||||x|\ngroupKeepaliveTimeout|||||x|\ngroupMembershipType|||||x|\ngroupPartitionSchemeList|||||x|\nkafkaReceiverName|x|x||||\nmetadataTopicExcludeList|||||x|\nmetadataTopicRefreshInterval|||||x|\nmsgVpnName|x||x|||\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request.\n\nThis has been available since 2.36.",
+        "description": "Update a Kafka Receiver object. Any attribute missing from the request will be left unchanged.\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamAccessKeyId|||||x|\nauthenticationAwsMskIamRegion|||||x|\nauthenticationAwsMskIamSecretAccessKey||||x|x|\nauthenticationAwsMskIamStsExternalId|||||x|\nauthenticationAwsMskIamStsRoleArn|||||x|\nauthenticationAwsMskIamStsRoleSessionName|||||x|\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\ngroupId|||||x|\ngroupKeepaliveInterval|||||x|\ngroupKeepaliveTimeout|||||x|\ngroupMembershipType|||||x|\ngroupPartitionSchemeList|||||x|\nkafkaReceiverName|x|x||||\nmetadataTopicExcludeList|||||x|\nmetadataTopicRefreshInterval|||||x|\nmsgVpnName|x||x|||\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request.\n\nThis has been available since 2.36.",
         "operationId": "updateMsgVpnKafkaReceiver",
         "parameters": [
           {
@@ -56118,7 +56462,7 @@
         "x-supportedInSempDirect": false
       },
       "put": {
-        "description": "Replace a Kafka Receiver object. Any attribute missing from the request will be set to its default value, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods).\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\ngroupId|||||x|\ngroupKeepaliveInterval|||||x|\ngroupKeepaliveTimeout|||||x|\ngroupMembershipType|||||x|\ngroupPartitionSchemeList|||||x|\nkafkaReceiverName|x|x||||\nmetadataTopicExcludeList|||||x|\nmetadataTopicRefreshInterval|||||x|\nmsgVpnName|x||x|||\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request. In addition, a minimum access scope/level of \"vpn/read-write\" is required if this operation creates an object.\n\nThis has been available since 2.36.",
+        "description": "Replace a Kafka Receiver object. Any attribute missing from the request will be set to its default value, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods).\n\nA Kafka Receiver receives messages from a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamAccessKeyId|||||x|\nauthenticationAwsMskIamRegion|||||x|\nauthenticationAwsMskIamSecretAccessKey||||x|x|\nauthenticationAwsMskIamStsExternalId|||||x|\nauthenticationAwsMskIamStsRoleArn|||||x|\nauthenticationAwsMskIamStsRoleSessionName|||||x|\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\ngroupId|||||x|\ngroupKeepaliveInterval|||||x|\ngroupKeepaliveTimeout|||||x|\ngroupMembershipType|||||x|\ngroupPartitionSchemeList|||||x|\nkafkaReceiverName|x|x||||\nmetadataTopicExcludeList|||||x|\nmetadataTopicRefreshInterval|||||x|\nmsgVpnName|x||x|||\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaReceiver|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaReceiver|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaReceiver|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaReceiver|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaReceiver|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request. In addition, a minimum access scope/level of \"vpn/read-write\" is required if this operation creates an object.\n\nThis has been available since 2.36.",
         "operationId": "replaceMsgVpnKafkaReceiver",
         "parameters": [
           {
@@ -56600,7 +56944,7 @@
     },
     "/msgVpns/{msgVpnName}/kafkaSenders": {
       "get": {
-        "description": "Get a list of Kafka Sender objects.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaSenderName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThe maximum number of objects that can be returned in a single page is 100.\n\nThis has been available since 2.36.",
+        "description": "Get a list of Kafka Sender objects.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey||x|\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaSenderName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThe maximum number of objects that can be returned in a single page is 100.\n\nThis has been available since 2.36.",
         "operationId": "getMsgVpnKafkaSenders",
         "parameters": [
           {
@@ -56663,7 +57007,7 @@
         "x-supportedInSempDirect": false
       },
       "post": {
-        "description": "Create a Kafka Sender object. Any attribute missing from the request will be set to its default value. The creation of instances of this object are synchronized to HA mates and replication sites via config-sync.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Required|Read-Only|Write-Only|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword|||||x|x\nauthenticationClientCertContent|||||x|x\nauthenticationClientCertPassword|||||x|\nauthenticationKerberosKeytabContent|||||x|\nauthenticationOauthClientSecret|||||x|x\nauthenticationScramPassword|||||x|x\nkafkaSenderName|x|x|x|||\nmsgVpnName|x|||x||\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-write\". A different access scope/level may also be required when providing values for specific attributes.\n\nThis has been available since 2.36.",
+        "description": "Create a Kafka Sender object. Any attribute missing from the request will be set to its default value. The creation of instances of this object are synchronized to HA mates and replication sites via config-sync.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Required|Read-Only|Write-Only|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey|||||x|\nauthenticationBasicPassword|||||x|x\nauthenticationClientCertContent|||||x|x\nauthenticationClientCertPassword|||||x|\nauthenticationKerberosKeytabContent|||||x|\nauthenticationOauthClientSecret|||||x|x\nauthenticationScramPassword|||||x|x\nkafkaSenderName|x|x|x|||\nmsgVpnName|x|||x||\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-write\". A different access scope/level may also be required when providing values for specific attributes.\n\nThis has been available since 2.36.",
         "operationId": "createMsgVpnKafkaSender",
         "parameters": [
           {
@@ -56777,7 +57121,7 @@
         "x-supportedInSempDirect": false
       },
       "get": {
-        "description": "Get a Kafka Sender object.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaSenderName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThis has been available since 2.36.",
+        "description": "Get a Kafka Sender object.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Write-Only|Opaque\n:---|:---:|:---:|:---:\nauthenticationAwsMskIamSecretAccessKey||x|\nauthenticationBasicPassword||x|x\nauthenticationClientCertContent||x|x\nauthenticationClientCertPassword||x|\nauthenticationKerberosKeytabContent||x|\nauthenticationOauthClientSecret||x|x\nauthenticationScramPassword||x|x\nkafkaSenderName|x||\nmsgVpnName|x||\n\n\n\nThe minimum access scope/level required to perform this operation is \"vpn/read-only\".\n\nThis has been available since 2.36.",
         "operationId": "getMsgVpnKafkaSender",
         "parameters": [
           {
@@ -56835,7 +57179,7 @@
         "x-supportedInSempDirect": false
       },
       "patch": {
-        "description": "Update a Kafka Sender object. Any attribute missing from the request will be left unchanged.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxMsgCount|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\nidempotenceEnabled|||||x|\nkafkaSenderName|x|x||||\nmsgVpnName|x||x|||\ntransportCompressionEnabled|||||x|\ntransportCompressionLevel|||||x|\ntransportCompressionType|||||x|\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request.\n\nThis has been available since 2.36.",
+        "description": "Update a Kafka Sender object. Any attribute missing from the request will be left unchanged.\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamAccessKeyId|||||x|\nauthenticationAwsMskIamRegion|||||x|\nauthenticationAwsMskIamSecretAccessKey||||x|x|\nauthenticationAwsMskIamStsExternalId|||||x|\nauthenticationAwsMskIamStsRoleArn|||||x|\nauthenticationAwsMskIamStsRoleSessionName|||||x|\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxMsgCount|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\nidempotenceEnabled|||||x|\nkafkaSenderName|x|x||||\nmsgVpnName|x||x|||\ntransportCompressionEnabled|||||x|\ntransportCompressionLevel|||||x|\ntransportCompressionType|||||x|\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request.\n\nThis has been available since 2.36.",
         "operationId": "updateMsgVpnKafkaSender",
         "parameters": [
           {
@@ -56902,7 +57246,7 @@
         "x-supportedInSempDirect": false
       },
       "put": {
-        "description": "Replace a Kafka Sender object. Any attribute missing from the request will be set to its default value, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods).\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxMsgCount|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\nidempotenceEnabled|||||x|\nkafkaSenderName|x|x||||\nmsgVpnName|x||x|||\ntransportCompressionEnabled|||||x|\ntransportCompressionLevel|||||x|\ntransportCompressionType|||||x|\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request. In addition, a minimum access scope/level of \"vpn/read-write\" is required if this operation creates an object.\n\nThis has been available since 2.36.",
+        "description": "Replace a Kafka Sender object. Any attribute missing from the request will be set to its default value, subject to the exceptions [here](https://docs.solace.com/Admin/SEMP/SEMP-API-Archit.htm#HTTP_Methods).\n\nA Kafka Sender sends messages to a Kafka Cluster.\n\n\nAttribute|Identifying|Const|Read-Only|Write-Only|Auto-Disable|Opaque\n:---|:---:|:---:|:---:|:---:|:---:|:---:\nauthenticationAwsMskIamAccessKeyId|||||x|\nauthenticationAwsMskIamRegion|||||x|\nauthenticationAwsMskIamSecretAccessKey||||x|x|\nauthenticationAwsMskIamStsExternalId|||||x|\nauthenticationAwsMskIamStsRoleArn|||||x|\nauthenticationAwsMskIamStsRoleSessionName|||||x|\nauthenticationBasicPassword||||x|x|x\nauthenticationBasicUsername|||||x|\nauthenticationClientCertContent||||x|x|x\nauthenticationClientCertPassword||||x|x|\nauthenticationKerberosKeytabContent||||x|x|\nauthenticationKerberosKeytabFileName|||||x|\nauthenticationKerberosServiceName|||||x|\nauthenticationKerberosUserPrincipalName|||||x|\nauthenticationOauthClientId|||||x|\nauthenticationOauthClientScope|||||x|\nauthenticationOauthClientSecret||||x|x|x\nauthenticationOauthClientTokenEndpoint|||||x|\nauthenticationScheme|||||x|\nauthenticationScramHash|||||x|\nauthenticationScramPassword||||x|x|x\nauthenticationScramUsername|||||x|\nbatchDelay|||||x|\nbatchMaxMsgCount|||||x|\nbatchMaxSize|||||x|\nbootstrapAddressList|||||x|\nidempotenceEnabled|||||x|\nkafkaSenderName|x|x||||\nmsgVpnName|x||x|||\ntransportCompressionEnabled|||||x|\ntransportCompressionLevel|||||x|\ntransportCompressionType|||||x|\ntransportTlsEnabled|||||x|\n\n\n\nThe following attributes in the request may only be provided in certain combinations with other attributes:\n\n\nClass|Attribute|Requires\n:---|:---|:---\nMsgVpnKafkaSender|authenticationBasicPassword|authenticationBasicUsername\nMsgVpnKafkaSender|authenticationClientCertPassword|authenticationClientCertContent\nMsgVpnKafkaSender|authenticationKerberosKeytabContent|authenticationKerberosKeytabFileName, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosKeytabFileName|authenticationKerberosKeytabContent, authenticationKerberosUserPrincipalName\nMsgVpnKafkaSender|authenticationKerberosUserPrincipalName|authenticationKerberosKeytabContent, authenticationKerberosKeytabFileName\nMsgVpnKafkaSender|authenticationScramPassword|authenticationScramUsername\n\n\n\nThe minimum access scope/level required to perform this operation is determined by the attributes provided in the request. In addition, a minimum access scope/level of \"vpn/read-write\" is required if this operation creates an object.\n\nThis has been available since 2.36.",
         "operationId": "replaceMsgVpnKafkaSender",
         "parameters": [
           {
